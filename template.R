@@ -1,6 +1,6 @@
 ## -*- coding: utf-8 -*-
 
-if(interactive())source('~/cs/code/r/tasks/task.R')
+if(interactive())source('~/cs/code/r/tasks/task/task.R')
 
 ## Globalne parametry zadania
 
@@ -61,7 +61,6 @@ trial.code = function(trial, side = 'left'){
                 fixation.cleared = CLOCK$time
             }
         }, 'post-fixation' = {
-            draw.scale.boxes()
             if((CLOCK$time - fixation.cleared) > POST.FIXATION.TIME){
                 state = 'show-stim'
             }
