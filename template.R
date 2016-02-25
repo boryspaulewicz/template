@@ -87,7 +87,6 @@ trial.code = function(trial, side = 'left'){
 TASK.NAME <<- 'template'
 gui.show.instruction("Za chwilę pojawi się okno danych osobowych")
 ## gui.user.data()
-USER.DATA = list(name = 'admin', age = 37, gender = 'M')
-source.random.condition()
-run.trials(trial.code, expand.grid(side = c('left', 'right')))
+run.trials(trial.code, condition = source.random.condition(),
+           record.session = T, expand.grid(side = c('left', 'right')))
 if(!interactive())quit("no")
