@@ -39,6 +39,8 @@ trial.code = function(trial, side = 'left'){
     start = CLOCK$time
     while(WINDOW$is.open()){
         process.inputs()
+        ## Możliwość wyjścia z etapu za pomocą ESC
+        if(KEY.PRESSED[Key.Escape + 1] > start)return(NULL)
         ## Kod specyficzny dla zadania
         switch(state, 'press-space' = {
             WINDOW$clear(c(0, 0, 0))
@@ -86,6 +88,7 @@ trial.code = function(trial, side = 'left'){
 TASK.NAME <<- 'template'
 gui.show.instruction("Za chwilę pojawi się okno danych osobowych")
 ## gui.user.data()
+db.connect('task')
 run.trials(trial.code, condition = source.random.condition(),
-           record.session = T, expand.grid(side = c('left', 'right')))
+           record.session = F, expand.grid(side = c('left', 'right')))
 if(!interactive())quit("no")
